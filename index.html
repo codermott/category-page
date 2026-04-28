@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fishing Gear – Bass Pro Shops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* === Colors === */
+:root {
+  --white: #FFFFFF;
+  --light-gray: #F6F6F4;
+  --border-color: #EAE9E5;
+  --mid-gray: #C3C0B4;
+  --text-light: #737168;
+  --text-mid: #504E43;
+  --text-dark: #1E1D19;   /* "black" — always use this, never #000 */
+
+  --green-bg-light: #EBEFE7;
+  --green-mid: #90AA76;
+  --green-dark: #4F6B57;
+  --green-darker: #213629;
+
+  --brand-green:   #084D32;
+
+  --accent-yellow: #F8BF00;
+  --orange: #DD6906;
+  --border-radiused:    #BB3030;
+  --link-blue:   #0065D1;
+  --badge-green: #1E8000;
+
+  --page-padding:    40px;
+  --max-width:    1400px;
+  --border-radius:      4px;
+  --transition:   ease;
+
+  --card-height: 300px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--light-gray);
+  color: var(--text-dark);
+  font-family: 'Cabin', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+
+/* max width wrapper */
+.page-max {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,.08);
+}
+
+/* Layout */
+.wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--page-padding); }
+
+/* Typography */
+.label-xs {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+}
+.display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: .5px; line-height: 1;
+}
+
+/* Hero Banner */
+.hero {
+  position: relative;
+  height: clamp(400px, 50vh, 580px);
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+  background: var(--green-darker);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+}
+.hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(8,77,50,.93) 0%,
+    rgba(8,77,50,.55) 50%,
+    rgba(8,77,50,.08) 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  width: 100%; max-width: var(--max-width);
+  margin: 0 auto; padding: 0 var(--page-padding) 48px;
+}
+.hero-eyebrow {
+  color: var(--accent-yellow); margin-bottom: 8px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 10vw, 110px);
+  color: var(--white); line-height: .88; letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Cabin', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 12px 22px; border-radius: var(--border-radius);
+  transition: transform .18s, box-shadow .18s, background .18s, border-color .18s;
+  cursor: pointer; border: none;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.btn-yellow { background: var(--accent-yellow); color: var(--text-dark); }
+.btn-yellow:hover { background: #ffd240; }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.5); }
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.09); }
+
+/* Breadcrumb */
+.breadcrumb {
+  background: var(--brand-green);
+  padding: 10px var(--page-padding);
+}
+.breadcrumb ul { list-style: none; display: flex; gap: 4px; align-items: center; }
+.breadcrumb li { display: flex; align-items: center; gap: 4px; }
+.breadcrumb a, .breadcrumb span {
+  font-size: 12px; color: var(--green-bg-light);
+}
+.breadcrumb a { opacity: .7; transition: opacity .2s; }
+.breadcrumb a:hover { opacity: 1; }
+.breadcrumb .sep { opacity: .35; font-size: 10px; }
+
+/* Trust bar */
+.trust {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px var(--page-padding);
+}
+.trust-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; gap: 28px; align-items: center;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--text-dark);
+  white-space: nowrap;
+}
+.trust-item svg { color: var(--brand-green); }
+.trust-sep { width: 1px; height: 20px; background: var(--border-color); flex-shrink: 0; }
+
+/* New and Sale banners */
+.feature-banners {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 28px var(--page-padding) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.feat-banner {
+  border-radius: var(--border-radius); overflow: hidden;
+  display: flex; align-items: center;
+  padding: 26px 28px; gap: 18px; min-height: 96px;
+  text-decoration: none;
+  transition: transform .25s var(--transition), box-shadow .25s var(--transition);
+  box-shadow: 0 2px 14px rgba(0,0,0,.14);
+}
+.feat-banner:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.2); }
+.feat-banner-new  { background: linear-gradient(105deg, #054028 0%, var(--brand-green) 60%, #0d6b46 100%); }
+.feat-banner-sale { background: linear-gradient(105deg, #1E1D19 0%, #2e2d28 100%); }
+.feat-banner-icon { font-size: 40px; flex-shrink: 0; line-height: 1; }
+.feat-banner-copy { display: flex; flex-direction: column; gap: 2px; }
+.feat-banner-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,.6);
+}
+.feat-banner-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; color: var(--white); line-height: 1; letter-spacing: .3px;
+}
+.feat-banner-sub { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.7); margin-top: 2px; }
+.feat-banner-arrow {
+  margin-left: auto; flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,.16);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); transition: background .2s;
+}
+.feat-banner:hover .feat-banner-arrow { background: rgba(255,255,255,.28); }
+@media (max-width: 600px) {
+  .feature-banners { grid-template-columns: 1fr; }
+  .feat-banner { padding: 20px 18px; }
+  .feat-banner-title { font-size: 24px; }
+}
+
+/* Section headers */
+.sec-hd {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 44px var(--page-padding) 20px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+}
+.sec-hd-left { display: flex; flex-direction: column; gap: 4px; }
+.sec-hd-left .label-xs { color: var(--text-light); }
+.sec-hd-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--text-dark); }
+.sec-hd a.see-all {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--link-blue);
+  border-bottom: 1px solid transparent; padding-bottom: 1px;
+  transition: border-color .2s; white-space: nowrap;
+}
+.sec-hd a.see-all:hover { border-color: var(--link-blue); }
+
+/* Category grid */
+.cat-grid {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 0 var(--page-padding) 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: start; /* critical: prevents siblings stretching when one card expands */
+}
+
+/* Category cards */
+.card {
+  position: relative;
+  height: var(--card-height);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(8,77,50,.09);
+  transition: box-shadow .3s var(--transition), transform .3s var(--transition);
+}
+.card.is-open {
+  overflow: visible; /* let panel spill out below */
+  z-index: 100;
+}
+.card:focus-visible { outline: 3px solid var(--accent-yellow); outline-offset: 3px; }
+.card:not(.is-open):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(8,77,50,.2);
+}
+
+.card-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--transition), filter .4s var(--transition);
+  display: block;
+}
+.card:not(.is-open):hover .card-img { transform: scale(1.06); }
+.card.is-open .card-img { filter: brightness(.18) saturate(.3); }
+
+.card-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(8,77,50,0) 30%, rgba(8,77,50,.88) 100%);
+  pointer-events: none;
+  transition: opacity .35s var(--transition);
+}
+.card.is-open .card-grad { opacity: 0; }
+
+/* closed label — sits over the image */
+.card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px 14px 14px;
+  z-index: 2;
+  transition: opacity .25s var(--transition), transform .25s var(--transition);
+}
+.card.is-open .card-label {
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+}
+.card-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent-yellow); margin-bottom: 3px;
+}
+.card-label h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--white); line-height: 1;
+}
+.card-hint {
+  margin-top: 6px; font-size: 11px; color: rgba(255,255,255,.6);
+  font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  display: flex; align-items: center; gap: 4px;
+  transition: color .2s;
+}
+.card:not(.is-open):hover .card-hint { color: rgba(255,255,255,.9); }
+.hint-arrow { transition: transform .22s; }
+.card:not(.is-open):hover .hint-arrow { transform: translateX(3px); }
+
+/* badge on top of image */
+.card-badge {
+  position: absolute; top: 12px; left: 12px; z-index: 3;
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+}
+.badge-new  { background: var(--badge-green); color: var(--white); }
+.badge-sale { background: var(--orange);  color: var(--white); }
+
+/* ── Overlay panel — lives inside the card, same fixed height ── */
+.card-panel {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  /* height auto — grows to fit all links */
+  min-height: 100%;
+  z-index: 4;
+  display: flex; flex-direction: column;
+  padding: 14px 16px 16px;
+  background: var(--brand-green);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity .28s var(--transition), transform .28s var(--transition);
+}
+.card.is-open .card-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.panel-inner {
+  display: flex; flex-direction: column;
+  gap: 4px;
+}
+
+/* panel header row */
+.panel-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px; gap: 8px; flex-shrink: 0;
+}
+.panel-hd h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; color: var(--white); line-height: 1;
+}
+.panel-close {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--white);
+  transition: background .18s;
+}
+.panel-close:hover { background: rgba(255,255,255,.26); }
+
+/* sub-links */
+.sub-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 1px;
+}
+.sub-list li a {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 8px; border-radius: 3px;
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,.85);
+  transition: background .15s, color .15s, padding-left .15s;
+  letter-spacing: .1px;
+}
+.sub-list li a::before {
+  content: ''; display: inline-block; flex-shrink: 0;
+  width: 4px; height: 4px;
+  border-right: 2px solid var(--accent-yellow);
+  border-top: 2px solid var(--accent-yellow);
+  transform: rotate(45deg);
+  opacity: .6; transition: opacity .15s;
+}
+.sub-list li a:hover {
+  background: rgba(255,255,255,.12);
+  color: var(--white); padding-left: 12px;
+}
+.sub-list li a:hover::before { opacity: 1; }
+
+.panel-all {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  flex-shrink: 0;
+}
+.panel-all a {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent-yellow);
+  display: inline-flex; align-items: center; gap: 5px;
+  border-bottom: 1px solid rgba(248,191,0,.3); padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.panel-all a:hover { border-color: var(--accent-yellow); }
+
+/* Promo banner */
+.promo {
+  max-width: var(--max-width); margin: 32px auto 0;
+  padding: 0 var(--page-padding);
+}
+.promo-inner {
+  border-radius: var(--border-radius); overflow: hidden;
+  box-shadow: 0 4px 20px rgba(8,77,50,.12);
+}
+.promo-inner a { display: block; }
+.promo-inner img { width: 100%; display: block; transition: transform .5s var(--transition); }
+.promo-inner:hover img { transform: scale(1.01); }
+
+/* Articles section */
+.articles {
+  padding-bottom: 64px;
+}
+.articles-grid {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 0 var(--page-padding);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.art-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(8,77,50,.07);
+  display: flex; flex-direction: column;
+  transition: transform .3s var(--transition), box-shadow .3s var(--transition);
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .4s var(--transition), transform .4s var(--transition), box-shadow .3s;
+}
+.art-card.visible { opacity: 1; transform: translateY(0); }
+.art-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(8,77,50,.14);
+}
+.art-thumb-wrap { overflow: hidden; height: 170px; flex-shrink: 0; }
+.art-thumb {
+  width: 100%; height: 170px; object-fit: cover; display: block;
+  transition: transform .5s var(--transition);
+}
+.art-card:hover .art-thumb { transform: scale(1.05); }
+.art-body {
+  padding: 16px 16px 18px;
+  display: flex; flex-direction: column; gap: 7px; flex: 1;
+  border-top: 3px solid var(--green-bg-light);
+}
+.art-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--brand-green);
+}
+.art-body h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px; color: var(--text-dark); line-height: 1.15; letter-spacing: .3px;
+}
+.art-body p { font-size: 13px; color: var(--text-light); line-height: 1.55; flex: 1; }
+.art-read {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--link-blue);
+  border-bottom: 1px solid transparent; padding-bottom: 1px;
+  margin-top: 4px; transition: border-color .2s;
+}
+.art-read:hover { border-color: var(--link-blue); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card { opacity: 0; animation: fadeUp .4s var(--transition) forwards; }
+.card:nth-child(1)  { animation-delay: .03s }
+.card:nth-child(2)  { animation-delay: .06s }
+.card:nth-child(3)  { animation-delay: .09s }
+.card:nth-child(4)  { animation-delay: .12s }
+.card:nth-child(5)  { animation-delay: .15s }
+.card:nth-child(6)  { animation-delay: .18s }
+.card:nth-child(7)  { animation-delay: .21s }
+.card:nth-child(8)  { animation-delay: .24s }
+.card:nth-child(9)  { animation-delay: .27s }
+.card:nth-child(10) { animation-delay: .30s }
+.card:nth-child(11) { animation-delay: .33s }
+.card:nth-child(12) { animation-delay: .36s }
+.card:nth-child(13) { animation-delay: .39s }
+.card:nth-child(14) { animation-delay: .42s }
+
+/* SEO content */
+.seo-content {
+  background: var(--white);
+  border-top: 1px solid var(--border-color);
+  margin-top: 60px;
+}
+.seo-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 52px var(--page-padding) 60px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 56px;
+  align-items: start;
+}
+.seo-main h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; color: var(--text-dark); margin-bottom: 14px; letter-spacing: .3px;
+}
+.seo-main h3 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin: 22px 0 8px; }
+.seo-main p { font-size: 14px; color: var(--text-light); line-height: 1.75; margin-bottom: 10px; }
+.seo-main a { color: var(--link-blue); border-bottom: 1px solid rgba(0,101,209,.25); transition: border-color .2s; }
+.seo-main a:hover { border-color: var(--link-blue); }
+.seo-faq h3 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 14px; }
+.faq-item { border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 8px; overflow: hidden; }
+.faq-item summary {
+  padding: 13px 16px; font-size: 13px; font-weight: 600; color: var(--text-dark);
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: var(--light-gray); transition: background .2s; user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 18px; font-weight: 300; color: var(--brand-green); flex-shrink: 0; transition: transform .25s; }
+.faq-item[open] summary { background: var(--green-bg-light); }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { background: var(--green-bg-light); }
+.faq-item > div { padding: 13px 16px; font-size: 13px; color: var(--text-light); line-height: 1.7; background: var(--white); border-top: 1px solid var(--border-color); }
+.seo-cat-links { list-style: none; display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.seo-cat-links li a {
+  display: inline-block; font-size: 12px; font-weight: 600; color: var(--text-mid);
+  background: var(--light-gray); border: 1px solid var(--border-color); border-radius: 3px; padding: 4px 11px;
+  transition: color .18s, border-color .18s, background .18s;
+}
+.seo-cat-links li a:hover { color: var(--brand-green); border-color: var(--brand-green); background: var(--green-bg-light); }
+@media (max-width: 900px) { .seo-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Responsive / mobile */
+@media (max-width: 767px) {
+  :root { --page-padding: 16px; --card-height: 220px; }
+  .hero h1 { font-size: 72px; }
+  .trust-sep { display: none; }
+  .trust-inner { gap: 14px; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .qs-inner { gap: 0; }
+}
+@media (min-width: 1200px) {
+  .cat-grid { grid-template-columns: repeat(7, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="page-max">
+
+<!-- Hero -->
+<section class="hero">
+  <img class="hero-bg"
+    src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Main.jpg"
+    alt="Two anglers on a misty lake at sunrise">
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Bass Pro Shops</p>
+    <h1>Fishing<br>Gear</h1>
+    <div class="hero-actions">
+      <a href="/l/lures" class="btn btn-yellow">
+        Shop Best Sellers
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M6.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/l/rod-reel-combos" class="btn btn-outline">View Combos</a>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <ul>
+    <li><a href="/home">Home</a><span class="sep"> › </span></li>
+    <li><span>Fishing</span></li>
+  </ul>
+</nav>
+
+<!-- Trust bar -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 15 15"><path d="M7.5 1.5l1.6 3.3 3.6.5-2.6 2.6.6 3.6L7.5 10 4.3 11.5l.6-3.6-2.6-2.6 3.6-.5z" fill="currentColor"/></svg>
+      Free Shipping on $50+
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 15 15"><rect x="1" y="4" width="13" height="9" rx="1.2" stroke="currentColor" stroke-width="1.3"/><path d="M5 4V3a2.5 2.5 0 015 0v1" stroke="currentColor" stroke-width="1.3"/></svg>
+      Easy Returns
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 15 15"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M7.5 4.5v4l2.3 1.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Same-Day Store Pickup
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <svg width="15" height="15" fill="none" viewBox="0 0 15 15"><path d="M7.5 1.5c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" stroke="currentColor" stroke-width="1.3"/><path d="M5 7.5l2 2 3-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Best Price Guarantee
+    </div>
+  </div>
+</div>
+
+<!-- New and Sale banners -->
+<div class="feature-banners">
+  <a href="/l/fishing-gear-new-arrivals" class="feat-banner feat-banner-new">
+    <span class="feat-banner-icon">✦</span>
+    <div class="feat-banner-copy">
+      <span class="feat-banner-eyebrow">Just Dropped</span>
+      <span class="feat-banner-title">New Fishing Arrivals</span>
+      <span class="feat-banner-sub">The latest rods, reels, lures &amp; more</span>
+    </div>
+    <div class="feat-banner-arrow">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+  <a href="/l/all-sale-fishing" class="feat-banner feat-banner-sale">
+    <span class="feat-banner-icon">%</span>
+    <div class="feat-banner-copy">
+      <span class="feat-banner-eyebrow">Limited Time</span>
+      <span class="feat-banner-title">Fishing Deals &amp; Sale</span>
+      <span class="feat-banner-sub">Save big on rods, reels, tackle &amp; gear</span>
+    </div>
+    <div class="feat-banner-arrow">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+</div>
+
+<!-- Categories -->
+<div class="sec-hd">
+  <div class="sec-hd-left">
+    <span class="label-xs" style="color:var(--text-light)">Browse</span>
+    <h2>Shop By Category</h2>
+  </div>
+  <a href="/c/fishing" class="see-all">View All Fishing →</a>
+</div>
+
+
+<main class="cat-grid" id="cat-grid">
+
+  <!-- 1 REELS -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Reels.jpg" alt="Fishing reel">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Gear Up</p>
+        <h3>Fishing Reels</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd">
+          <h3>Fishing Reels</h3>
+          <button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        </div>
+        <ul class="sub-list">
+          <li><a href="/l/baitcast-reels">Baitcast Reels</a></li>
+          <li><a href="/l/spinning-reels">Spinning Reels</a></li>
+          <li><a href="/l/spincast-reels">Spincast Reels</a></li>
+          <li><a href="/l/saltwater-reels">Saltwater Reels</a></li>
+          <li><a href="/l/fly-fishing-reels">Fly Reels</a></li>
+          <li><a href="/l/line-counter-fishing-reels">Line Counter Reels</a></li>
+          <li><a href="/l/power-assist-fishing-reels">Power Assist Reels</a></li>
+        </ul>
+        <div class="panel-all"><a href="/c/fishing-reels">View All Reels →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 LURES -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Lures.jpg" alt="Fishing lures">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Attract More</p>
+        <h3>Lures</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Lures</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/hardbaits">Hard Bait Lures</a></li>
+          <li><a href="/l/softbaits">Soft Bait Lures</a></li>
+          <li><a href="/l/spinnerbaits-buzzbaits">Spinnerbaits &amp; Buzzbaits</a></li>
+          <li><a href="/l/bass-jigs">Bass Jigs</a></li>
+          <li><a href="/l/saltwater-lures">Saltwater Lures</a></li>
+          <li><a href="/l/panfish-lures">Panfish Lures</a></li>
+          <li><a href="/l/casting-and-jigging-spoons">Fishing Spoons</a></li>
+          <li><a href="/l/lure-kits">Lure Kits</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/lures">View All Lures →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 ACCESSORIES -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Accessories.jpg" alt="Fishing accessories">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Essentials</p>
+        <h3>Fishing Accessories</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Accessories</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/fillet-knives-tables">Fillet Knives &amp; Tables</a></li>
+          <li><a href="/l/fishing-nets">Fishing Nets</a></li>
+          <li><a href="/l/bait-buckets-management">Bait Buckets &amp; Management</a></li>
+          <li><a href="/l/saltwater-fishing-accessories">Saltwater Accessories</a></li>
+          <li><a href="/l/rod-reel-accessories">Rod &amp; Reel Accessories</a></li>
+          <li><a href="/l/rod-holders-racks">Rod Holders &amp; Racks</a></li>
+          <li><a href="/l/tools-pliers">Tools &amp; Pliers</a></li>
+          <li><a href="/l/rulers-scales">Rulers &amp; Scales</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/fishing-accessories">View All Accessories →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 COMBOS -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Combo.jpg" alt="Man holding fishing combo">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Complete Setups</p>
+        <h3>Rod &amp; Reel Combos</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Rod &amp; Reel Combos</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/baitcast-combos">Baitcast Combos</a></li>
+          <li><a href="/l/spinning-combos">Spinning Combos</a></li>
+          <li><a href="/l/spincast-combos">Spincast Combos</a></li>
+          <li><a href="/l/saltwater-rod-reel-combos">Saltwater Combos</a></li>
+          <li><a href="/l/fly-fishing-outfits">Fly Outfits</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/rod-reel-combos">View All Combos →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 RODS -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Rods.jpg" alt="Man holding fishing rod">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Precision</p>
+        <h3>Rods</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Rods</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/casting-rods">Casting Rods</a></li>
+          <li><a href="/l/spinning-rods">Spinning Rods</a></li>
+          <li><a href="/l/saltwater-rods">Saltwater Rods</a></li>
+          <li><a href="/l/fly-fishing-rods">Fly Rods</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/fishing-rods">View All Rods →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 ICE FISHING -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-ICE.jpg" alt="Man drilling ice with auger">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Cold Weather</p>
+        <h3>Ice Fishing</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Ice Fishing</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/ice-shanties-shelters-and-sleds">Shelters &amp; Sleds</a></li>
+          <li><a href="/l/ice-augers">Ice Augers</a></li>
+          <li><a href="/l/terminal-tackle-for-ice-fishing">Terminal Tackle</a></li>
+          <li><a href="/l/ice-fishing-accessories">Accessories</a></li>
+          <li><a href="/l/ice-fishing-lures-and-jigs">Lures &amp; Bait</a></li>
+          <li><a href="/l/ice-fishing-tip-ups">Tip Ups</a></li>
+          <li><a href="/l/ice-fishing-clothing-and-apparel">Ice Fishing Clothing</a></li>
+          <li><a href="/l/ice-fishing-rods-and-reels-combos">Rods, Reels &amp; Combos</a></li>
+        </ul>
+        <div class="panel-all"><a href="/c/ice-fishing">View All Ice Fishing →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 KAYAKS -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Kayaks.jpg" alt="Man fishing from a kayak">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">On the Water</p>
+        <h3>Kayaks &amp; Canoes</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Kayaks &amp; Canoes</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/kayaks-and-fishing-kayaks">Kayaks &amp; Fishing Kayaks</a></li>
+          <li><a href="/l/kayak-canoe-accessories">Kayak &amp; Canoe Accessories</a></li>
+          <li><a href="/l/paddles-oars">Paddles &amp; Oars</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/kayaks-canoes">View All Kayaks &amp; Canoes →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 TERMINAL TACKLE -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/c_scale,f_auto,q_auto,w_666/v1700171210/DigitalCreative/2023/Dept-Pages/Fishing/Fishing%20Dept%20Page/Subcat%20images/083120-Fishing-Terminal3.avif" alt="Terminal tackle">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Terminal Tackle</p>
+        <h3>Line, Hooks &amp; Weights</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Line, Hooks &amp; Weights</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/fishing-line">Fishing Line</a></li>
+          <li><a href="/l/fishing-hooks">Fish Hooks</a></li>
+          <li><a href="/l/fishing-sinkers-and-weights">Weights &amp; Sinkers</a></li>
+          <li><a href="/l/fishing-jigheads">Jig Heads</a></li>
+          <li><a href="/l/saltwater-terminal-tackle">Saltwater Terminal</a></li>
+          <li><a href="/l/lure-building-and-molds">Lure Building &amp; Molds</a></li>
+          <li><a href="/l/rigs-and-components">Rigs &amp; Components</a></li>
+          <li><a href="/l/bobbers-floats">Floats</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/terminal-tackle">View All Terminal Tackle →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 TACKLE BOXES -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-TackleBoxes.jpg" alt="Tackle boxes">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Organization</p>
+        <h3>Tackle Boxes &amp; Bags</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Tackle Boxes &amp; Bags</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/tackle-boxes">Tackle Boxes</a></li>
+          <li><a href="/l/tackle-bags">Tackle Bags</a></li>
+          <li><a href="/l/utility-boxes">Utility Bags</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/tackle-boxes-bags">View All Tackle Storage →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 SALTWATER -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Salt.jpg" alt="People fishing on a saltwater boat">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Offshore &amp; Inshore</p>
+        <h3>Saltwater Fishing</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Saltwater Fishing</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/saltwater-reels">Saltwater Reels</a></li>
+          <li><a href="/l/saltwater-rods">Saltwater Rods</a></li>
+          <li><a href="/l/saltwater-rod-reel-combos">Saltwater Combos</a></li>
+          <li><a href="/l/saltwater-lures">Saltwater Lures</a></li>
+          <li><a href="/l/saltwater-fishing-accessories">Saltwater Accessories</a></li>
+          <li><a href="/l/saltwater-terminal-tackle">Saltwater Terminal</a></li>
+        </ul>
+        <div class="panel-all"><a href="/c/saltwater-fishing">View All Saltwater →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 FLY FISHING -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-FLY.jpg" alt="Man fly fishing">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">The Art of</p>
+        <h3>Fly Fishing</h3>
+        <p class="card-hint">Explore <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Fly Fishing</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/sun-protection">Sun Protection &amp; Apparel</a></li>
+          <li><a href="/l/fly-rods-reels-outfits">Fly Rods, Reels &amp; Outfits</a></li>
+          <li><a href="/l/fly-line-leader-tippet">Fly Line, Leader &amp; Tippet</a></li>
+          <li><a href="/l/fly-fishing-accessories">Fly Fishing Accessories</a></li>
+          <li><a href="/l/flies-fly-tying">Flies &amp; Fly Tying</a></li>
+          <li><a href="/l/fly-fishing-waders">Fly Fishing Waders</a></li>
+          <li><a href="/l/float-tubes-pontoons">Float Tubes &amp; Pontoons</a></li>
+        </ul>
+        <div class="panel-all"><a href="/c/fly-fishing">View All Fly Fishing →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 APPAREL -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Clothing.jpg" alt="Man in fishing shirt">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Comfort &amp; Protection</p>
+        <h3>Fishing Apparel &amp; Rain Gear</h3>
+        <p class="card-hint">Shop <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Apparel &amp; Rain Gear</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/fishing-clothing-and-rain-gear">All Fishing Apparel</a></li>
+          <li><a href="/l/sun-protection">Sun Protection</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/fishing-clothing-and-rain-gear">Shop Fishing Apparel →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 SUNGLASSES -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Sunglasses.jpg" alt="Man wearing fishing sunglasses">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">See the Depth</p>
+        <h3>Fishing Sunglasses</h3>
+        <p class="card-hint">Shop <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Fishing Sunglasses</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/fishing-sunglasses">All Fishing Sunglasses</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/fishing-sunglasses">Shop Sunglasses →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 BOWFISHING -->
+  <div class="card" role="button" tabindex="0" aria-expanded="false">
+      <img class="card-img" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Bowfish.jpg" alt="Two men bowfishing">
+      <div class="card-grad"></div>
+      <div class="card-label">
+        <p class="card-eyebrow">Adventure Sport</p>
+        <h3>Bowfishing</h3>
+        <p class="card-hint">Shop <svg class="hint-arrow" width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M5.5 1.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+    <div class="card-panel">
+      <div class="panel-inner">
+        <div class="panel-hd"><h3>Bowfishing</h3><button class="panel-close" aria-label="Close"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <ul class="sub-list">
+          <li><a href="/l/bowfishing">All Bowfishing Gear</a></li>
+        </ul>
+        <div class="panel-all"><a href="/l/bowfishing">Shop Bowfishing →</a></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Promo banner -->
+<div class="promo">
+  <div class="promo-inner">
+    <a href="/l/johnny-morris-carbonlite-technique-combos">
+      <img
+        src="https://assets.basspro.com/image/upload/v1757341688/DigitalCreative/2025/BPS_CAB/Dept-Pages/Standard-Dept-Pages/Fishing/08-Sept/BPS-Full_Banner-Carbonlite-Desktop.jpg?$bpssite_default$"
+        alt="Johnny Morris Carbonlite Tech Combos – Shop Now">
+    </a>
+  </div>
+</div>
+
+<!-- Articles -->
+<div class="articles">
+  <div class="sec-hd">
+    <div class="sec-hd-left">
+      <span class="label-xs" style="color:var(--text-light)">Expert Knowledge</span>
+      <h2>Tips, Tactics &amp; Guides</h2>
+    </div>
+    <a href="/t/fishing-tips" class="see-all">All Articles →</a>
+  </div>
+
+  <div class="articles-grid" id="articles-grid">
+
+    <article class="art-card">
+      <div class="art-thumb-wrap">
+        <img class="art-thumb" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Reels.jpg" alt="Fishing reel guide">
+      </div>
+      <div class="art-body">
+        <span class="art-tag">Buyer's Guide</span>
+        <h4>How to Choose the Right Fishing Reel</h4>
+        <p>Baitcast, spinning, or spincast? We break down the differences so you can pick the perfect reel for your species and technique.</p>
+        <a href="/t/how-to-choose-fishing-reel" class="art-read">Read Guide →</a>
+      </div>
+    </article>
+
+    <article class="art-card">
+      <div class="art-thumb-wrap">
+        <img class="art-thumb" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-Lures.jpg" alt="Bass lures">
+      </div>
+      <div class="art-body">
+        <span class="art-tag">Fishing Tips</span>
+        <h4>Top 10 Bass Lures for Every Season</h4>
+        <p>From soft plastics in summer to jigs in cold water — the lures that consistently produce bass all year long.</p>
+        <a href="/t/best-bass-lures" class="art-read">Read Article →</a>
+      </div>
+    </article>
+
+    <article class="art-card">
+      <div class="art-thumb-wrap">
+        <img class="art-thumb" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-ICE.jpg" alt="Ice fishing">
+      </div>
+      <div class="art-body">
+        <span class="art-tag">How To</span>
+        <h4>Ice Fishing for Beginners: Your Complete Starter Guide</h4>
+        <p>Everything you need before hitting the ice — augers, shelters, tip-ups, sonar, and staying safe in freezing conditions.</p>
+        <a href="/t/ice-fishing-beginners-guide" class="art-read">Read Guide →</a>
+      </div>
+    </article>
+
+    <article class="art-card">
+      <div class="art-thumb-wrap">
+        <img class="art-thumb" src="//assets.basspro.com/image/upload/f_auto,q_auto/v1669913314/DigitalCreative/2022/Dept-Pages/Fishing/Fishing/BPS/083120-Fishing-FLY.jpg" alt="Fly fishing">
+      </div>
+      <div class="art-body">
+        <span class="art-tag">Technique</span>
+        <h4>Getting Started with Fly Fishing: Gear, Knots &amp; Casts</h4>
+        <p>The art of fly fishing is more approachable than you think. Learn the essential gear, basic knots, and three key casts.</p>
+        <a href="/t/fly-fishing-beginners" class="art-read">Read Article →</a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- SEO content -->
+<section class="seo-content" aria-label="About Fishing Gear at Bass Pro Shops">
+  <div class="seo-inner">
+    <div class="seo-main">
+      <h2>Fishing Gear &amp; Tackle at Bass Pro Shops</h2>
+      <p>Bass Pro Shops is America's premier destination for fishing gear, offering one of the widest selections of <a href="/l/fishing-rods">fishing rods</a>, <a href="/c/fishing-reels">fishing reels</a>, lures, tackle, and accessories available anywhere. Whether you're a beginner or a seasoned angler chasing trophy fish, we carry the equipment and expertise to help you succeed on the water.</p>
+      <p>Our fishing department covers every style — from freshwater <a href="/l/lures">bass fishing</a> and <a href="/c/fly-fishing">fly fishing</a> to <a href="/c/saltwater-fishing">offshore saltwater fishing</a> and <a href="/c/ice-fishing">ice fishing</a>. We stock industry-leading brands including Johnny Morris, Abu Garcia, Shimano, Daiwa, St. Croix, Rapala, Berkley, and hundreds more.</p>
+
+      <h3>Rods, Reels &amp; Combos</h3>
+      <p>Our <a href="/c/fishing-reels">fishing reels</a> collection spans baitcast, spinning, spincast, fly, saltwater, and line counter styles. Pair any reel with one of our <a href="/l/fishing-rods">fishing rods</a>, or save time with a matched <a href="/l/rod-reel-combos">rod and reel combo</a>. For terminal tackle, browse <a href="/l/fishing-line">fishing line</a>, <a href="/l/fishing-hooks">hooks</a>, <a href="/l/fishing-sinkers-and-weights">weights and sinkers</a>, and jig heads.</p>
+
+      <h3>Specialty Fishing</h3>
+      <p>For <a href="/c/fly-fishing">fly fishing</a>, we carry fly rods, reels, line, leaders, flies, and waders. <a href="/c/ice-fishing">Ice fishing</a> anglers will find augers, shelters, tip-ups, and cold-weather clothing. Our <a href="/c/saltwater-fishing">saltwater</a> section is built for big fish and harsh conditions, and our <a href="/l/kayaks-canoes">fishing kayaks</a> are rigged and ready for on-water anglers.</p>
+    </div>
+
+    <div class="seo-faq">
+      <h3>Frequently Asked Questions</h3>
+
+      <details class="faq-item">
+        <summary>What type of fishing reel is best for beginners?</summary>
+        <div>
+          <p>Spincast reels are the easiest starting point — simple to use and forgiving of errors. Spinning reels offer better distance and versatility. Baitcast reels deliver the most precision and power but have a steeper learning curve.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What fishing line should I use?</summary>
+        <div>
+          <p>Monofilament is affordable and forgiving — great for beginners. Fluorocarbon is nearly invisible underwater and ideal for clear water. Braided line offers maximum strength and sensitivity, preferred for heavy cover and saltwater.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does Bass Pro Shops offer free shipping on fishing gear?</summary>
+        <div>
+          <p>Yes — free standard shipping on orders of $50 or more. Same-day in-store pickup is also available at your local Bass Pro Shops location.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the best lure for bass fishing?</summary>
+        <div>
+          <p>Top choices include soft plastic worms, spinnerbaits, crankbaits, and bass jigs. Topwater lures like poppers and frogs are exciting in warmer months when bass are feeding near the surface.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- Scripts -->
+<script>
+// card open/close logic
+// TODO: maybe add animation later
+const grid = document.getElementById('cat-grid');
+
+function closeAll() {
+  // closes all open cards
+  grid.querySelectorAll('.card.is-open').forEach(c => {
+    c.classList.remove('is-open');
+    c.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function openCard(card) {
+  closeAll();
+  card.classList.add('is-open');
+  card.setAttribute('aria-expanded', 'true');
+}
+
+grid.addEventListener('click', e => {
+  // Close button
+  if (e.target.closest('.panel-close')) {
+    e.stopPropagation();
+    closeAll();
+    return;
+  }
+  // Let sub-links navigate normally
+  if (e.target.closest('.sub-list a') || e.target.closest('.panel-all a')) return;
+
+  const card = e.target.closest('.card');
+  if (card) {
+    if (card.classList.contains('is-open')) {
+      closeAll(); // clicking open card closes it
+    } else {
+      openCard(card); // clicking another card closes current and opens new
+    }
+  }
+});
+
+// Click outside any card closes all
+document.addEventListener('click', e => {
+  if (!e.target.closest('.card')) closeAll();
+});
+
+// Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAll();
+});
+
+// animate articles when they scroll into view
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.art-card').forEach(c => io.observe(c));
+</script>
+</div>
+</body>
+</html>
